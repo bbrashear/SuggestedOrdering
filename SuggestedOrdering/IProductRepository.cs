@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SuggestedOrdering
 {
-    interface IProductRepository
+    public interface IProductRepository
     {
         public IEnumerable<Product> GetAllProducts();
     }
