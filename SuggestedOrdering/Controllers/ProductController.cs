@@ -16,7 +16,8 @@ namespace SuggestedOrdering.Controllers
         //GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            var products = repo.GetAllProducts();
+            return View(products);
         }
     }
 }
