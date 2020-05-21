@@ -2,6 +2,13 @@
 
     <h2>Products</h2>
 
+    <div>
+        @using (Html.BeginForm("InsertProduct", "Product", "Post"))
+        {
+            <input type="submit" value="Create a Product" class="btn btn-primary"/>
+        }
+    </div>
+
     <table class="table">
         <tr>
             <th>ID</th>

@@ -30,5 +30,17 @@ namespace SuggestedOrdering
             _conn.Execute("UPDATE products SET UsageNumber = @usageNumber, OnHand = @onHand WHERE ProductID = @id",
                 new { usageNumber = product.UsageNumber, onHand = product.OnHand, id = product.ProductID });
         }
+        public void InsertProduct(Product productToInsert)
+        {
+            _conn.Execute("INSERT INTO products (ItemNumber, Description, CaseSize, UsageNumber, OnHand) VALUES " +
+                "(@itemNumber, @description, @caseSize, @usageNumber, @onHand);", new
+                {
+                    itemNumber = productToInsert.ItemNumber,
+                    description = productToInsert.Description,
+                    caseSize = productToInsert.CaseSize,
+                    usageNumber = productToInsert.UsageNumber,
+                    onHand = productToInsert.OnHand
+                });
+        }
     }
 }
