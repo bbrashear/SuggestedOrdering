@@ -1,6 +1,6 @@
 ﻿@model Product
 
-<h3>@Model.Description Information</h3>
+<h3>@Model.ItemNumber - @Model.Description Information</h3>
 
 <table class="table">
     <tr>
@@ -19,6 +19,13 @@
         <td>@Model.UsageNumber</td>
         <td>@Model.OnHand</td>
     </tr>
-
 </table>
+
+<div style="padding:4px 4px 4px 0px;">
+    @using (Html.BeginForm("UpdateProduct", "Product", "Post"))
+    {
+        <input type="hidden" asp-for="ProductID" value="@Model.ProductID" />
+        <input type="submit" class="btn btn-primary" value="Update Product" />
+    }
+</div>
 

@@ -23,7 +23,12 @@ namespace SuggestedOrdering
 
         public Product GetProduct(int id)
         {
-            return (Product)_conn.QuerySingle<Product>("SELECT * FROM products WHERE ProductID = @id", new { id = id });
+            return (Product)_conn.QuerySingleOrDefault<Product>("SELECT * FROM products WHERE ProductID = @id", new { id = id });
+        }
+        public void UpdateProduct(Product product)
+        {
+            _conn.Execute("UPDATE products SET UsageNumber = @usageNumber, OnHand = @onHand WHERE ProductID = @id",
+                new { usageNumber = product.UsageNumber, onHand = product.OnHand, id = product.ProductID });
         }
     }
 }
