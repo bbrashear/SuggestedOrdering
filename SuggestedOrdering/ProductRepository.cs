@@ -42,5 +42,9 @@ namespace SuggestedOrdering
                     onHand = productToInsert.OnHand
                 });
         }
+        public void DeleteProduct(Product product)
+        {
+            _conn.Execute("DELETE FROM products WHERE ProductID = @id;", new { id = product.ProductID });
+        }
     }
 }

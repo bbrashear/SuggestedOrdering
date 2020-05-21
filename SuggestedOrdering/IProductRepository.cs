@@ -13,5 +13,6 @@ namespace SuggestedOrdering
         public Product GetProduct(int id);
         public void UpdateProduct(Product product);
         public void InsertProduct(Product productToInsert);
+        public void DeleteProduct(Product product);
     }
 }
